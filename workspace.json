@@ -1,4 +1,7 @@
 {
   "version": 2,
-  "projects": {}
+  "projects": {
+    "angular-imagerezz": "apps/angular/imagerezz",
+    "angular-imagerezz-e2e": "apps/angular/imagerezz-e2e"
+  }
 }

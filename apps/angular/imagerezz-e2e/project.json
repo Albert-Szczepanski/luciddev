@@ -1,0 +1,28 @@
+{
+  "root": "apps/angular/imagerezz-e2e",
+  "sourceRoot": "apps/angular/imagerezz-e2e/src",
+  "projectType": "application",
+  "targets": {
+    "e2e": {
+      "executor": "@nrwl/cypress:cypress",
+      "options": {
+        "cypressConfig": "apps/angular/imagerezz-e2e/cypress.json",
+        "devServerTarget": "angular-imagerezz:serve:development"
+      },
+      "configurations": {
+        "production": {
+          "devServerTarget": "angular-imagerezz:serve:production"
+        }
+      }
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "outputs": ["{options.outputFile}"],
+      "options": {
+        "lintFilePatterns": ["apps/angular/imagerezz-e2e/**/*.{js,ts}"]
+      }
+    }
+  },
+  "tags": [],
+  "implicitDependencies": ["angular-imagerezz"]
+}
