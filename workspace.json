@@ -2,6 +2,7 @@
   "version": 2,
   "projects": {
     "angular-imagerezz": "apps/angular/imagerezz",
-    "angular-imagerezz-e2e": "apps/angular/imagerezz-e2e"
+    "angular-imagerezz-e2e": "apps/angular/imagerezz-e2e",
+    "photos-angular": "libs/photos/angular"
   }
 }
