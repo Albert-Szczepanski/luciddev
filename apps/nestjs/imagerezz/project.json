@@ -1,0 +1,52 @@
+{
+  "root": "apps/nestjs/imagerezz",
+  "sourceRoot": "apps/nestjs/imagerezz/src",
+  "projectType": "application",
+  "targets": {
+    "build": {
+      "executor": "@nrwl/node:webpack",
+      "outputs": ["{options.outputPath}"],
+      "options": {
+        "outputPath": "dist/apps/nestjs/imagerezz",
+        "main": "apps/nestjs/imagerezz/src/main.ts",
+        "tsConfig": "apps/nestjs/imagerezz/tsconfig.app.json",
+        "assets": ["apps/nestjs/imagerezz/src/assets"]
+      },
+      "configurations": {
+        "production": {
+          "optimization": true,
+          "extractLicenses": true,
+          "inspect": false,
+          "fileReplacements": [
+            {
+              "replace": "apps/nestjs/imagerezz/src/environments/environment.ts",
+              "with": "apps/nestjs/imagerezz/src/environments/environment.prod.ts"
+            }
+          ]
+        }
+      }
+    },
+    "serve": {
+      "executor": "@nrwl/node:node",
+      "options": {
+        "buildTarget": "nestjs-imagerezz:build"
+      }
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "outputs": ["{options.outputFile}"],
+      "options": {
+        "lintFilePatterns": ["apps/nestjs/imagerezz/**/*.ts"]
+      }
+    },
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "outputs": ["coverage/apps/nestjs/imagerezz"],
+      "options": {
+        "jestConfig": "apps/nestjs/imagerezz/jest.config.js",
+        "passWithNoTests": true
+      }
+    }
+  },
+  "tags": []
+}
