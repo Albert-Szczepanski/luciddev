@@ -4,6 +4,8 @@
     "angular-imagerezz": "apps/angular/imagerezz",
     "angular-imagerezz-e2e": "apps/angular/imagerezz-e2e",
     "nestjs-imagerezz": "apps/nestjs/imagerezz",
-    "photos-angular": "libs/photos/angular"
+    "photos-angular": "libs/photos/angular",
+    "photos-core": "libs/photos/core",
+    "photos-nestjs": "libs/photos/nestjs"
   }
 }

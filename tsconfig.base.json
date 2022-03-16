@@ -15,7 +15,9 @@
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
     "paths": {
-      "@luciddev/photos/angular": ["libs/photos/angular/src/index.ts"]
+      "@luciddev/photos/angular": ["libs/photos/angular/src/index.ts"],
+      "@luciddev/photos/core": ["libs/photos/core/src/index.ts"],
+      "@luciddev/photos/nestjs": ["libs/photos/nestjs/src/index.ts"]
     }
   },
   "exclude": ["node_modules", "tmp"]
