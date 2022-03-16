@@ -7,7 +7,8 @@
     "build": "nx build",
     "test": "nx test",
     "postinstall": "ngcc --properties es2015 browser module main",
-    "serve-imagerezz": "nx serve angular-imagerezz"
+    "serve-imagerezz": "nx serve angular-imagerezz",
+    "serve-imagerezz-api": "nx serve nestjs-imagerezz"
   },
   "private": true,
   "dependencies": {
@@ -24,6 +25,7 @@
     "@nestjs/platform-express": "^8.0.0",
     "@nrwl/angular": "^13.8.8",
     "@nrwl/nest": "^13.9.1",
+    "guid-typescript": "^1.0.9",
     "primeng": "^13.2.1",
     "reflect-metadata": "^0.1.13",
     "rxjs": "~7.4.0",
