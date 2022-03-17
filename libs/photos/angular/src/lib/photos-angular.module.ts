@@ -4,9 +4,10 @@ import {ImageResizerPage} from "./pages/image-resizer";
 import {PhotosService} from "./services";
 import {HttpClientModule} from "@angular/common/http";
 import {PhotoUploadComponent} from "./components";
+import {FileUploadModule} from 'primeng/fileupload';
 
 @NgModule({
-  imports: [CommonModule, HttpClientModule],
+  imports: [CommonModule, HttpClientModule, FileUploadModule],
   declarations: [ImageResizerPage, PhotoUploadComponent],
   exports: [
     ImageResizerPage
