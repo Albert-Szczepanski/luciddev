@@ -1,12 +1,13 @@
-<h1>photo upload component</h1>
+<p>Wybrane pliki: {{imagesToSend ? imagesToSend.length : '0'}}
+  Rozmiar: {{imagesSize}}MB
+</p>
 <p-fileUpload
+  #fileUpload
   [multiple]="true"
   [maxFileSize]=10000000
   [customUpload]="true"
+  [chooseLabel]="'Wybierz pliki'"
+  [showCancelButton]="false"
+  [showUploadButton]="false"
   (onSelect)="onPhotoAdd($event)">
-  <ng-template pTemplate="content">
-<!--    <ul *ngIf="uploadedFiles.length">-->
-<!--      <li *ngFor="let file of uploadedFiles">{{file.name}} - {{file.size}} bytes</li>-->
-<!--    </ul>-->
-  </ng-template>
 </p-fileUpload>
