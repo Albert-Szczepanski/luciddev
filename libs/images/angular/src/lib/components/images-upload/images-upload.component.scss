@@ -1,0 +1,22 @@
+:host ::ng-deep {
+  .p-fileupload-choose{
+    padding: 1rem;
+    background-color: #318066;
+    color: white;
+    cursor: pointer;
+  }
+
+  .p-fileupload-content{
+    display: none;
+  }
+
+}
+
+button{
+  margin-top: 2rem;
+  padding: 1rem;
+  background-color: #318066;
+  color: white;
+  cursor: pointer;
+}
+

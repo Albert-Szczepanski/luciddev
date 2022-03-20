@@ -2,11 +2,11 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
 import { AppComponent } from './app.component';
-import {PhotosAngularModule} from "@luciddev/photos/angular";
+import {ImagesAngularModule} from "@luciddev/images/angular";
 
 @NgModule({
   declarations: [AppComponent],
-  imports: [BrowserModule, PhotosAngularModule],
+  imports: [BrowserModule, ImagesAngularModule],
   providers: [],
   bootstrap: [AppComponent],
 })

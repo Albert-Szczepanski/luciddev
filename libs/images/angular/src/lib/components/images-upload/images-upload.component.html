@@ -1,0 +1,16 @@
+<p>Wybrane pliki: {{imagesToSend ? imagesToSend.length : '0'}}
+  Rozmiar: {{imagesSize}}MB
+</p>
+<p-fileUpload
+  #fileUpload
+  [multiple]="true"
+  [maxFileSize]=10000000
+  [customUpload]="true"
+  [chooseLabel]="'Wybierz pliki'"
+  [showCancelButton]="false"
+  [showUploadButton]="false"
+  (onSelect)="onPhotoAdd($event)">
+</p-fileUpload>
+<button (click)="onSendButtonClick()">
+  Wyślij zdjęcia
+</button>

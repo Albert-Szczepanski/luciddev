@@ -1,0 +1,26 @@
+{
+  "projectType": "library",
+  "root": "libs/images/angular",
+  "sourceRoot": "libs/images/angular/src",
+  "prefix": "luciddev",
+  "targets": {
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "outputs": ["coverage/libs/images/angular"],
+      "options": {
+        "jestConfig": "libs/images/angular/jest.config.js",
+        "passWithNoTests": true
+      }
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "options": {
+        "lintFilePatterns": [
+          "libs/images/angular/src/**/*.ts",
+          "libs/images/angular/src/**/*.html"
+        ]
+      }
+    }
+  },
+  "tags": []
+}
