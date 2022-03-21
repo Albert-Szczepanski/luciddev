@@ -1,4 +1,5 @@
 import { Injectable } from '@nestjs/common';
+import {ImagesInterface} from "@luciddev/images/core";
 
 @Injectable()
 export class ImagesService {
@@ -15,6 +16,11 @@ export class ImagesService {
   }
 
   resizeImage(sourceDir: string, outputDir: string){
+
+  }
+
+  async savePhotos(localUserId: string, file: File) {
+    console.log({user:localUserId, image:file})
 
   }
 }

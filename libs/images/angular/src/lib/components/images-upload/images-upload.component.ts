@@ -12,10 +12,9 @@ import {ImagesInterface} from "@luciddev/images/core";
 export class ImagesUploadComponent implements OnInit, OnDestroy{
   constructor(private service: PhotosService) {
   }
-  @ViewChild('fileUpload', {static: true})
   fileUpload: any;
 
-  imagesToSend: ImagesInterface[] = [];
+  imagesToSend: File[] = [];
   imagesSize: number = 0
 
   ngOnInit() {
@@ -23,13 +22,12 @@ export class ImagesUploadComponent implements OnInit, OnDestroy{
   }
 
   onPhotoAdd($event: any){
-    this.imagesToSend = $event.currentFiles;
+    this.imagesToSend = $event.target.files;
     this.imagesSize = 0
-    this.imagesToSend.forEach(image => {
-      this.imagesSize += image.size
-    })
+    for (let i = 0; i < this.imagesToSend.length; i++){
+      this.imagesSize += this.imagesToSend[i].size
+    }
     this.imagesSize = Math.round(((this.imagesSize / 1024 / 1024) + Number.EPSILON) * 100) / 100
-    this.fileUpload.clear();
   }
 
   onPhotosRemove(){
@@ -42,7 +40,7 @@ export class ImagesUploadComponent implements OnInit, OnDestroy{
 
   async resizePhotos(){
     for (let i = 0; i < this.imagesToSend.length; i++){
-      await this.service.sendPhotos('test' + i)
+      await this.service.sendPhotos('test' + i, this.imagesToSend[i])
     }
   }
 

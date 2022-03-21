@@ -2,10 +2,10 @@ import { Module } from '@nestjs/common';
 
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
-import {PhotosNestjsModule} from "@luciddev/photos/nestjs";
+import {ImagesNestjsModule} from "@luciddev/images/nestjs";
 
 @Module({
-  imports: [PhotosNestjsModule],
+  imports: [ImagesNestjsModule],
   controllers: [AppController],
   providers: [AppService],
 })
