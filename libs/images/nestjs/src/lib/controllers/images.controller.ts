@@ -18,11 +18,11 @@ export class ImagesController {
 
   @Post('/:localUserId/saveImage')
   @UseInterceptors(FileInterceptor('file'))
-  savePhotos(@Param('localUserId') localUserId: string, @UploadedFile() file) {
+  saveImages(@Param('localUserId') localUserId: string, @UploadedFile() file: Express.Multer.File) {
     const response = {
       originalname: file.originalname,
       filename: file.filename,
     };
-    return this.photosService.savePhotos(localUserId, file)
+    return this.photosService.saveImages(localUserId, file)
   }
 }

@@ -10,18 +10,15 @@ import { Guid } from 'guid-typescript';
 export class ImageResizerPage implements OnInit, OnDestroy{
   constructor(private service: PhotosService) {
   }
-  sessionId: string | null | undefined;
+  sessionId: string = '';
 
   ngOnInit() {
     if (localStorage.getItem('SESSION_ID')){
-      this.sessionId = localStorage.getItem('SESSION_ID')
+      this.sessionId = localStorage.getItem('SESSION_ID') as string
     }else {
       this.sessionId = Guid.create().toString()
       localStorage.setItem('SESSION_ID', this.sessionId)
     }
-    this.service.getPhotos(this.sessionId as string).subscribe(res => {
-      console.log(res)
-    })
   }
 
   ngOnDestroy() {

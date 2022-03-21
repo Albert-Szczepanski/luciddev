@@ -5,7 +5,7 @@ import {MulterModule} from "@nestjs/platform-express";
 
 @Module({
   imports: [MulterModule.register({
-    dest: './_temp',
+    dest: './_temp/images',
   })],
   controllers: [ImagesController],
   providers: [ImagesService],

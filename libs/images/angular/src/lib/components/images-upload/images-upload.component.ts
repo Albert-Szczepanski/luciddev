@@ -1,4 +1,4 @@
-import {Component, OnDestroy, OnInit, ViewChild} from '@angular/core';
+import {Component, Input, OnDestroy, OnInit, ViewChild} from '@angular/core';
 import { PhotosService } from "../../services";
 import { Guid } from 'guid-typescript';
 import {ImagesInterface} from "@luciddev/images/core";
@@ -12,8 +12,8 @@ import {ImagesInterface} from "@luciddev/images/core";
 export class ImagesUploadComponent implements OnInit, OnDestroy{
   constructor(private service: PhotosService) {
   }
-  fileUpload: any;
-
+  @Input()
+  localUserId: string = '';
   imagesToSend: File[] = [];
   imagesSize: number = 0
 
@@ -40,7 +40,7 @@ export class ImagesUploadComponent implements OnInit, OnDestroy{
 
   async resizePhotos(){
     for (let i = 0; i < this.imagesToSend.length; i++){
-      await this.service.sendPhotos('test' + i, this.imagesToSend[i])
+      await this.service.sendPhotos(this.localUserId, this.imagesToSend[i])
     }
   }
 

@@ -1,5 +1,8 @@
 import { Injectable } from '@nestjs/common';
 import {ImagesInterface} from "@luciddev/images/core";
+import * as files from "@luciddev/files/node/files"
+import {doc} from "prettier";
+import debug = doc.debug;
 
 @Injectable()
 export class ImagesService {
@@ -7,21 +10,8 @@ export class ImagesService {
     return { message: 'Welcome to imagerezz!' };
   }
 
-  removeDirs(dirPath: string){
-
-  }
-
-  createDirs(dirPath: string){
-
-  }
-
-  resizeImage(sourceDir: string, outputDir: string){
-
-  }
-
-  async savePhotos(localUserId: string, file: File) {
-    console.log({user:localUserId, image:file})
-
+  async saveImages(localUserId: string, file: Express.Multer.File) {
+    await files.saveFile(file.filename, file.originalname, file.destination, '_temp/'+localUserId)
   }
 }
 //
