@@ -1,16 +1,12 @@
-import * as fs from 'fs';
-import { unlink } from 'fs/promises';
-export function filesNodeFiles(): string {
-  return 'files-node-files';
-}
-async function clearFolder(folder){
-  fs.readdir(folder, (err, files) => {
+export async function clearFolder(directory: string){
+  const fs = require('fs');
+  const fsPromises = fs.promises;
+  await fsPromises.readdir(directory, (err, files) => {
     for (let i = 0; i < files.length; i++){
       try {
-        unlink(`${folder+files[i]}`);
-        console.log(`Plik ${folder+files[i]} został usunięty `);
+        fsPromises.unlink(`${directory+files[i]}`);
       } catch (error) {
-        console.error('ERROR - Wystąpił Błąd:', error.message);
+        console.log(error)
       }
     }
   });
@@ -30,4 +26,12 @@ export async function saveFile(tempFileName: string, newFileName: string, fromDi
     await fsPromises.copyFile(copyFrom, copyTo)
   }
   await fsPromises.unlink(copyFrom)
+}
+
+export async function makeDir(dir:string){
+  const fs = require('fs');
+  const fsPromises = fs.promises;
+  if (!fs.existsSync(dir)){
+    await fsPromises.mkdir(dir)
+  }
 }
