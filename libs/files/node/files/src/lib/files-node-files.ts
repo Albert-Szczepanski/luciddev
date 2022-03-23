@@ -6,7 +6,7 @@ export async function clearFolder(directory: string){
       try {
         fsPromises.unlink(`${directory+files[i]}`);
       } catch (error) {
-        console.log(error)
+
       }
     }
   });
