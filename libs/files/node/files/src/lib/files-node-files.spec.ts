@@ -1,4 +1,4 @@
-import { filesNodeFiles } from './files-node-files';
+import { filesNodeFiles } from './files';
 
 describe('filesNodeFiles', () => {
   it('should work', () => {

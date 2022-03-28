@@ -20,7 +20,7 @@ export async function saveFile(tempFileName: string, newFileName: string, fromDi
   const copyTo = path.join(toDirectory, newFileName);
 
   if (!fs.existsSync(toDirectory)){
-      await fsPromises.mkdir(toDirectory)
+      await makeDir(toDirectory);
   }
   if (!fs.existsSync(copyTo)){
     await fsPromises.copyFile(copyFrom, copyTo)
@@ -28,10 +28,22 @@ export async function saveFile(tempFileName: string, newFileName: string, fromDi
   await fsPromises.unlink(copyFrom)
 }
 
+export async function renameFile(fromDir: string, toDir: string){
+  const fs = require('fs');
+  const fsPromises = fs.promises;
+  if (!fs.existsSync(fromDir))return;
+  await fsPromises.rename(fromDir, toDir)
+}
+
 export async function makeDir(dir:string){
   const fs = require('fs');
   const fsPromises = fs.promises;
-  if (!fs.existsSync(dir)){
-    await fsPromises.mkdir(dir)
+  const arr = dir.split('/')
+  let dirStr = ''
+  for (let i = 0; i < arr.length; i++){
+    dirStr += arr[i] + '/';
+    if (!fs.existsSync(dirStr)){
+      await fsPromises.mkdir(dirStr)
+    }
   }
 }

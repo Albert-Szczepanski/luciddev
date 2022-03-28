@@ -1,1 +1,1 @@
-export * from './lib/files-node-files';
+export * from './lib/files';
