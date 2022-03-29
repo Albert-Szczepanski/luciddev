@@ -1,12 +1,21 @@
-import { Injectable } from '@nestjs/common';
+import {HttpException, Injectable} from '@nestjs/common';
 import * as files from "@luciddev/files/node/files"
+import * as jimp from "jimp"
+const Jimp = require('jimp');
 
 @Injectable()
 export class ImagesService {
   mainDir = '_temp/'
+  lastImagesDir = '/lastImages'
+  grayscaleImagesDir= '/grayscale'
+  scaledImagesDir='/scaled'
 
   async saveImages(localUserId: string, file: Express.Multer.File) {
-    await files.saveFile(file.filename, file.originalname, file.destination, this.mainDir+localUserId+'/lastImages')
+    await files.saveFile(
+      file.filename,
+      file.originalname,
+      file.destination,
+      this.mainDir+localUserId+this.lastImagesDir)
   }
 
   async convertImages(){
@@ -17,12 +26,25 @@ export class ImagesService {
 
   }
 
-  private async scaleImage(){
-
+  private async scaleImage(dir: string){
+    const image = await this.getJimpImage(dir)
   }
 
-  private async imageToGrayscale(){
+  private async imageToGrayscale(dir: string){
+    const image = this.getJimpImage(dir)
+    await image.then(async res => {
+      try {
+        return await res.greyscale().write(dir)
+      }
+      catch (err){
+        console.log(err)
+        throw new HttpException(err, err.code)
+      }
+    })
+  }
 
+  private async getJimpImage(dir: string): Promise<any>{
+    return await Jimp.read(dir);
   }
 
 }
