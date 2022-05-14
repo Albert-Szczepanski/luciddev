@@ -4,6 +4,7 @@
 
 export const environment = {
   production: false,
+  apiUri: 'https://lunaklara.pl/wp-json/',
 };
 
 /*

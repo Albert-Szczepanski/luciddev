@@ -18,7 +18,10 @@
       "@luciddev/files/node/files": ["libs/files/node/files/src/index.ts"],
       "@luciddev/images/angular": ["libs/images/angular/src/index.ts"],
       "@luciddev/images/core": ["libs/images/core/src/index.ts"],
-      "@luciddev/images/nestjs": ["libs/images/nestjs/src/index.ts"]
+      "@luciddev/images/nestjs": ["libs/images/nestjs/src/index.ts"],
+      "@luciddev/wordpress/application/angular": [
+        "libs/wordpress/application/angular/src/index.ts"
+      ]
     }
   },
   "exclude": ["node_modules", "tmp"]

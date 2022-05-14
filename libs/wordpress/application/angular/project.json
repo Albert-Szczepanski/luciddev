@@ -1,0 +1,26 @@
+{
+  "projectType": "library",
+  "root": "libs/wordpress/application/angular",
+  "sourceRoot": "libs/wordpress/application/angular/src",
+  "prefix": "luciddev",
+  "targets": {
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "outputs": ["coverage/libs/wordpress/application/angular"],
+      "options": {
+        "jestConfig": "libs/wordpress/application/angular/jest.config.js",
+        "passWithNoTests": true
+      }
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "options": {
+        "lintFilePatterns": [
+          "libs/wordpress/application/angular/src/**/*.ts",
+          "libs/wordpress/application/angular/src/**/*.html"
+        ]
+      }
+    }
+  },
+  "tags": []
+}

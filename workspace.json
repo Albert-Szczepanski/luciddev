@@ -9,6 +9,7 @@
     "images-angular": "libs/images/angular",
     "images-core": "libs/images/core",
     "images-nestjs": "libs/images/nestjs",
-    "nestjs-imagerezz": "apps/nestjs/imagerezz"
+    "nestjs-imagerezz": "apps/nestjs/imagerezz",
+    "wordpress-application-angular": "libs/wordpress/application/angular"
   }
 }
