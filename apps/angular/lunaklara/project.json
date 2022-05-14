@@ -1,0 +1,94 @@
+{
+  "projectType": "application",
+  "root": "apps/angular/lunaklara",
+  "sourceRoot": "apps/angular/lunaklara/src",
+  "prefix": "luciddev",
+  "targets": {
+    "build": {
+      "executor": "@angular-devkit/build-angular:browser",
+      "outputs": ["{options.outputPath}"],
+      "options": {
+        "outputPath": "dist/apps/angular/lunaklara",
+        "index": "apps/angular/lunaklara/src/index.html",
+        "main": "apps/angular/lunaklara/src/main.ts",
+        "polyfills": "apps/angular/lunaklara/src/polyfills.ts",
+        "tsConfig": "apps/angular/lunaklara/tsconfig.app.json",
+        "inlineStyleLanguage": "scss",
+        "assets": [
+          "apps/angular/lunaklara/src/favicon.ico",
+          "apps/angular/lunaklara/src/assets"
+        ],
+        "styles": ["apps/angular/lunaklara/src/styles.scss"],
+        "scripts": []
+      },
+      "configurations": {
+        "production": {
+          "budgets": [
+            {
+              "type": "initial",
+              "maximumWarning": "500kb",
+              "maximumError": "1mb"
+            },
+            {
+              "type": "anyComponentStyle",
+              "maximumWarning": "2kb",
+              "maximumError": "4kb"
+            }
+          ],
+          "fileReplacements": [
+            {
+              "replace": "apps/angular/lunaklara/src/environments/environment.ts",
+              "with": "apps/angular/lunaklara/src/environments/environment.prod.ts"
+            }
+          ],
+          "outputHashing": "all"
+        },
+        "development": {
+          "buildOptimizer": false,
+          "optimization": false,
+          "vendorChunk": true,
+          "extractLicenses": false,
+          "sourceMap": true,
+          "namedChunks": true
+        }
+      },
+      "defaultConfiguration": "production"
+    },
+    "serve": {
+      "executor": "@angular-devkit/build-angular:dev-server",
+      "configurations": {
+        "production": {
+          "browserTarget": "angular-lunaklara:build:production"
+        },
+        "development": {
+          "browserTarget": "angular-lunaklara:build:development"
+        }
+      },
+      "defaultConfiguration": "development"
+    },
+    "extract-i18n": {
+      "executor": "@angular-devkit/build-angular:extract-i18n",
+      "options": {
+        "browserTarget": "angular-lunaklara:build"
+      }
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "options": {
+        "lintFilePatterns": [
+          "apps/angular/lunaklara/src/**/*.ts",
+          "apps/angular/lunaklara/src/**/*.html"
+        ]
+      }
+    },
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "outputs": ["coverage/apps/angular/lunaklara"],
+      "options": {
+        "jestConfig": "apps/angular/lunaklara/jest.config.js",
+        "passWithNoTests": true
+      }
+    }
+  },
+  "tags": []
+}

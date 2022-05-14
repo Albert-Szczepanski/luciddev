@@ -3,6 +3,8 @@
   "projects": {
     "angular-imagerezz": "apps/angular/imagerezz",
     "angular-imagerezz-e2e": "apps/angular/imagerezz-e2e",
+    "angular-lunaklara": "apps/angular/lunaklara",
+    "angular-lunaklara-e2e": "apps/angular/lunaklara-e2e",
     "files-node-files": "libs/files/node/files",
     "images-angular": "libs/images/angular",
     "images-core": "libs/images/core",
